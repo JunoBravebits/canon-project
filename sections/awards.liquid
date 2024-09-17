@@ -1,0 +1,57 @@
+{{ 'awards.css' | asset_url | stylesheet_tag }}
+
+<div class="awards" style="--background: {{section.settings.backgroundColor}}">
+  <div class="container awards__container">
+    {%- for block in section.blocks -%}
+      <div class="awards__image">
+        {{ block.settings.image | image_url: width: 400 | image_tag: widths: '200, 300, 400', sizes: '(min-width: 768px) 270px, 100vwç' }}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Awards",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "backgroundColor",
+      "label": "Background color",
+      "default": "#F7F7F7"
+    }
+    // {
+    //   "type": "color_scheme",
+    //   "id": "color_scheme",
+    //   "label": "t:sections.all.colors.label",
+    //   "default": "scheme-1"
+    // }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Awards"
+    }
+  ]
+}
+{% endschema %}

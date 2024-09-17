@@ -1266,3 +1266,225 @@ class BulkAdd extends HTMLElement {
 if (!customElements.get('bulk-add')) {
   customElements.define('bulk-add', BulkAdd);
 }
+
+class Slider extends HTMLElement {
+  constructor() {
+    super();
+    this.count = 0;
+    this.isDragging = false;
+    this.startX = 0;
+    this.startY = 0;
+    this.direction = null;
+    this.initSlider();
+  }
+
+  connectedCallback() {
+    this.initListeners();
+  }
+
+  initSlider() {
+    this.prevButton = this.querySelector(".js-btn-prev");
+    this.nextButton = this.querySelector(".js-btn-next");
+    this.sliderContent = this.querySelector(".js-slider-content");
+    this.sliders = this.sliderContent.querySelectorAll(".js-slider-item");
+    this.paginationContainer = this.querySelector(".js-pagination");
+
+    if (this.sliders.length > 0) {
+      this.sliders[0].classList.add("show");
+      this.paginationContainer.innerHTML = '';
+
+      this.sliders.forEach((_, index) => {
+        const dash = document.createElement("div");
+        dash.className = "dash";
+        dash.dataset.index = index;
+        this.paginationContainer.appendChild(dash);
+      });
+
+      this.dots = this.querySelectorAll(".js-pagination .dash");
+      this.dots[0].classList.add("active");
+    }
+  }
+
+  initListeners() {
+    this.nextButton.addEventListener("click", () => this.navigate(1));
+    this.prevButton.addEventListener("click", () => this.navigate(-1));
+    this.dots.forEach(dot => dot.addEventListener("click", (e) => this.onDotClick(e)));
+    this.addEventListener("mousedown", (e) => this.onMouseDown(e));
+    this.addEventListener("touchstart", (e) => this.onTouchStart(e), { passive: false });
+    this.addEventListener("mousemove", (e) => this.onMove(e));
+    this.addEventListener("touchmove", (e) => this.onTouchMove(e), { passive: false });
+    this.addEventListener("mouseup", () => this.onEnd());
+    this.addEventListener("touchend", () => this.onEnd());
+  }
+
+  navigate(direction) {
+    const max = this.sliders.length;
+    const oldIndex = this.count;
+    this.count = (this.count + direction + max) % max;
+    this.updateSlides(oldIndex, this.count);
+  }
+
+  onDotClick(e) {
+    const index = parseInt(e.target.dataset.index, 10);
+    if (index !== this.count) {
+      const oldIndex = this.count;
+      this.count = index;
+      this.updateSlides(oldIndex, this.count);
+    }
+  }
+
+  updateSlides(oldIndex, newIndex) {
+    this.sliders[oldIndex].classList.remove("show");
+    this.dots[oldIndex].classList.remove("active");
+    this.sliders[newIndex].classList.add("show");
+    this.dots[newIndex].classList.add("active");
+  }
+
+  onMouseDown(e) {
+    this.isDragging = true;
+    this.startX = e.pageX;
+    this.startY = e.pageY;
+    this.direction = null;
+  }
+
+  onTouchStart(e) {
+    this.isDragging = true;
+    this.startX = e.touches[0].pageX;
+    this.startY = e.touches[0].pageY;
+    this.direction = null;
+  }
+
+  onMove(e) {
+    if (this.isDragging) {
+      const currentX = e.pageX || e.touches[0].pageX;
+      const currentY = e.pageY || e.touches[0].pageY;
+      const distanceX = currentX - this.startX;
+      const distanceY = currentY - this.startY;
+
+      if (this.direction === null) {
+        this.direction = Math.abs(distanceX) > Math.abs(distanceY) ? 'horizontal' : 'vertical';
+      }
+
+      if (this.direction === 'horizontal') {
+        e.preventDefault();
+        if (distanceX > 50) {
+          this.navigate(-1);
+          this.isDragging = false;
+        } else if (distanceX < -50) {
+          this.navigate(1);
+          this.isDragging = false;
+        }
+      }
+    }
+  }
+
+  onTouchMove(e) {
+    if (this.isDragging) {
+      this.onMove(e);
+    }
+  }
+
+  onEnd() {
+    this.isDragging = false;
+  }
+}
+
+customElements.define('custom-slider', Slider);
+
+class AccordionImage extends HTMLElement {
+  constructor() {
+    super();
+
+    this.labels = this.querySelectorAll('.js-label');
+    this.contents = this.querySelectorAll('.js-content');
+    this.initAccordion();
+  }
+
+  initAccordion() {
+    this.labels.forEach((label, index) => {
+      label.addEventListener('click', () => this.toggleSection(index));
+    });
+  }
+
+  toggleSection(index) {
+    this.contents.forEach((content, contentIndex) => {
+      if (contentIndex !== index) {
+        content.style.maxHeight = null;
+        content.classList.remove('active');
+      }
+    });
+
+    const content = this.contents[index];
+    if (content.classList.contains('active')) {
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + 'px';
+    }
+    content.classList.toggle('active');
+  }
+}
+
+customElements.define('accordion-image', AccordionImage);
+
+class Quantity extends HTMLElement {
+  constructor() {
+    super();
+    this.quantityDisplay = this.querySelector('.js-quantity');
+    this.initAddToCartButtons();
+  }
+
+  initAddToCartButtons() {
+    this.querySelectorAll('.js-btn-quantity').forEach(button => {
+      button.addEventListener('click', this.handleAddToCartClick.bind(this));
+    });
+  }
+
+  handleAddToCartClick(event) {
+    let quantity = parseInt(this.quantityDisplay.textContent);
+    const button = event.target;
+
+    if (button.classList.contains('increase')) {
+      quantity += 1;
+    } else {
+      quantity -= 1;
+    }
+
+    this.quantityDisplay.textContent = Math.max(quantity, 1);
+  }
+}
+
+customElements.define('product-quantity', Quantity);
+
+class Gallery extends HTMLElement {
+  constructor() {
+    super();
+    this.galleryItems = this.querySelectorAll('.js-gallery-item img');
+    this.imageHolder = this.querySelector('.js-image');
+    this.initGallery();
+  }
+
+  initGallery() {
+    if (!this.imageHolder.getAttribute('style')) {
+      this.imageHolder.style.backgroundImage = `url(${this.galleryItems[0].getAttribute('src').replace('_small', '')})`;
+      this.galleryItems[0].classList.add('active');
+    }
+
+    this.galleryItems.forEach(item => {
+      item.addEventListener('click', this.handleGalleryItemClick.bind(this));
+    });
+  }
+
+  handleGalleryItemClick(event) {
+    event.preventDefault();
+    const clickedItem = event.target;
+
+    if (!clickedItem.classList.contains('active')) {
+      this.galleryItems.forEach(el => el.classList.remove('active'));
+      clickedItem.classList.add('active');
+      const imgSrc = clickedItem.getAttribute('src').replace('_small', '');
+      this.imageHolder.style.backgroundImage = `url(${imgSrc})`;
+    }
+  }
+}
+
+customElements.define('product-gallery', Gallery);

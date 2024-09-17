@@ -1,0 +1,49 @@
+.awards {
+  background: var(--background);
+  
+  .awards__container {
+    display: flex;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .awards__image {
+    width: 100%;
+    height: 100%;
+
+    img {
+      display: block;
+      width: 100%;
+      font-size: 0;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .awards__container {
+      flex-wrap: wrap;
+    }
+
+    .awards__image {
+      max-width: 346px;
+      width: 50%;
+    }
+  }
+
+  @media screen and (max-width: 540px) {
+    .awards__container {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .awards__image {
+      max-width: 345px;
+      width: 100%;
+      aspect-ratio: 345 / 167;
+    }
+  }
+}

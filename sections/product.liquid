@@ -1,0 +1,95 @@
+{{ 'product.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+
+{%- endstyle -%}
+
+{% assign selected_product = all_products[section.settings.product] %}
+{%- if selected_product != blank -%}
+  <div class="product p-component">
+    <div class="container product__container">
+      <div class="product__gallery">
+        <product-gallery>
+          <div class="gallery__container">
+            <div class="gallery__image js-image"></div>
+          </div>
+          <div class="gallery__list">
+            {%- for image in selected_product.images -%}
+              <div class="gallery__list-item js-gallery-item">
+                <img src="{{ image | img_url }}" alt="{{ selected_product.title }}">
+              </div>
+            {%- endfor -%}
+          </div>
+        </product-gallery>
+      </div>
+
+      <div class="product__content">
+        <div class="product__title title">{{ selected_product.title }}</div>
+        <div class="product__wrap">
+          <div class="product__price">{{ selected_product.price | money }}</div>
+          <div class="product__vote">
+            <div class="product__starts">
+              {{- 'icon-star-2.svg' | inline_asset_content -}}
+              {{- 'icon-star-2.svg' | inline_asset_content -}}
+              {{- 'icon-star-2.svg' | inline_asset_content -}}
+              {{- 'icon-star-2.svg' | inline_asset_content -}}
+              {{- 'icon-star-2-half.svg' | inline_asset_content -}}
+            </div>
+            <div class="product__review">( 231 review )</div>
+          </div>
+        </div>
+        <div class="product__cart">
+          <product-quantity>
+            <div class="product__quantity">
+              <span class="product__add-to-cart decrease js-btn-quantity">-</span>
+              <span class="product__quantity-number js-quantity">1</span>
+              <span class="product__add-to-cart increase js-btn-quantity">+</span>
+            </div>
+          </product-quantity>
+          {% render 'add-to-card' %}
+        </div>
+        <div class="product__desc">{{ selected_product.description }}</div>
+        {%- if section.settings.video != blank -%}
+        <div class="product__video">
+          {% comment %}<iframe width="496" height="292"{% endcomment %}
+          <iframe
+            src="https://www.youtube.com/embed/{{ section.settings.video }}?controls=0"> 
+          </iframe>
+        </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Product",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Select Product"
+    },
+    {
+      "type": "text",
+      "id": "video",
+      "label": "Video ID",
+      "info": "Nhập ID video từ YouTube",
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product"
+    }
+  ]
+}
+{% endschema %}

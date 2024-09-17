@@ -1,0 +1,162 @@
+.accessories {
+  .accessories__label {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .accessories__title {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .accessories__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .accessories__item {
+    max-width: 270px;
+    text-decoration: none;
+    width: 100%;
+
+    .add-to-card {
+      button {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .accessories__item-image-box {
+    /* padding: 30px; */
+    border: 1px solid #CECECE;
+    margin-bottom: 30px;
+    border-radius: 5px;
+  }
+
+  .accessories__item-image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    padding-bottom: 100%;
+  }
+
+  .accessories__item-label {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2D3339;
+    margin-bottom: 15px;
+    line-height: 21px;
+  }
+
+  .accessories__item-price {
+    font-size: 20px;
+    font-weight: 600;
+    color: #686B7B;
+    margin-bottom: 15px;
+    line-height: 21px;
+  }
+
+  .accessories__item-vote {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+
+  .accessories__item-starts {
+    display: flex;
+    gap: 5px;
+  }
+
+  .accessories__item-review {
+    font-size: 14px;
+    font-weight: 400;
+    color: #686B7B;
+  }
+
+  .accessories__item-button {
+    > a {
+      text-decoration: none;
+      width: 100%;
+      display: block;
+      border-radius: 5px;
+      background: #2D3339;
+      padding: 22px 0;
+      text-align: center;
+      font-size: 16px;
+      color: white;
+    }
+  }
+
+  .accessories__item-button:hover {
+    > a {
+      background: #43484D;
+    }
+  }
+
+  @media screen and (max-width: 1199px) {
+    .accessories__list {
+      justify-content: center;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .accessories__list {
+      column-gap: 15px;
+      row-gap: 20px;
+    }
+    
+    .accessories__title {
+      margin-bottom: 40px;
+      line-height: 40px;
+    }  
+
+    .accessories__item {
+      max-width: 165px;
+
+      .add-to-card {
+        button {
+          padding: 22px 0;
+        }
+      }
+    }
+    .accessories__item-image {
+      /* margin-bottom: 20px; */
+    }
+
+    .accessories__item-image-box {
+      margin-bottom: 20px;
+    }
+
+    .accessories__item-label {
+      font-size: 16px;
+      margin-bottom: 10px;
+      line-height: 1;
+    }
+
+    .accessories__item-price {
+      font-size: 14px;
+      margin-bottom: 10px;
+      line-height: 1;
+    }
+
+    .accessories__item-vote {
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+
+    .accessories__item-starts {
+      > svg {
+        width: 13px;
+        height: 13px;
+      }
+    }
+
+    .accessories__item-review {
+      font-size: 12px;
+    }
+  }
+}

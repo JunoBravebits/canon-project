@@ -1,0 +1,54 @@
+{{ 'camera-size.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+
+{%- endstyle -%}
+
+<div class="camera-size p-component">
+  <div class="container camera-size__container">
+    <div class="camera-size__label label">{{ section.settings.label }}</div>
+    <div class="camera-size__title title">{{ section.settings.title }}</div>
+    <div class="camera-size__image">
+      <img src="{{ section.settings.image | image_url }}" alt=""/>
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "CameraSize",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "default": "Label",
+      "label": "Label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Camera Size"
+    }
+  ]
+}
+{% endschema %}

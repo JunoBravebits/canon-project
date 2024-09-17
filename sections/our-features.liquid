@@ -1,0 +1,93 @@
+{{ 'our-features.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+
+{%- endstyle -%}
+
+<div class="our-features">
+  <div class="container">
+    <div class="our-features__container">
+      <div class="our-features__image">
+        <img src="{{ section.settings.image | image_url }}" alt=""/>
+      </div>
+      <div class="our-features__content">
+        <div class="our-features__label label">{{ section.settings.label }}</div>
+        <div class="our-features__title title">{{ section.settings.title }}</div>
+          <div class="our-features__technology">
+        {%- for block in section.blocks -%}
+            <div class="our-features__technology-wrap" >
+              <div class="our-features__technology-image">
+                <img src="{{ block.settings.image | image_url }}" alt=""/>
+              </div>
+              <div class="our-features__technology-title">{{ block.settings.title }}</div>
+              <div class="our-features__technology-desc">{{ block.settings.desc }}</div>
+            </div>
+        {%- endfor -%}
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "OurFeatures",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "default": "Label",
+      "label": "Label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "technology",
+      "name": "Technology",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "desc",
+          "default": "Description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Features"
+    }
+  ]
+}
+{% endschema %}

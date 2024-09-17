@@ -1,0 +1,29 @@
+.camera-size {
+  text-align: center;
+
+  .camera-size__label {
+    margin-bottom: 20px;
+  }
+
+  .camera-size__title {
+    margin-bottom: 59px;
+  }
+
+  .camera-size__image {
+    max-width: 1030px;
+    margin: auto;
+    aspect-ratio: 1030 / 473;
+  
+  }
+
+  @media screen and (max-width: 767px) {
+    .camera-size__title {
+      margin-bottom: 40px;
+    }
+
+    .camera-size__image {
+      aspect-ratio: 345 / 161;
+    }
+  }
+}
+
