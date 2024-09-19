@@ -1429,8 +1429,12 @@ customElements.define('accordion-image', AccordionImage);
 class Quantity extends HTMLElement {
   constructor() {
     super();
-    this.quantityDisplay = this.querySelector('.js-quantity');
+    this.quantity = this.querySelector('.js-quantity');
+    this.quantityDisplay = this.querySelector('.js-quantity-display');
+    this.quantityNumber = 1;
+
     this.initAddToCartButtons();
+    this.observeQuantityAttribute();
   }
 
   initAddToCartButtons() {
@@ -1439,17 +1443,40 @@ class Quantity extends HTMLElement {
     });
   }
 
-  handleAddToCartClick(event) {
-    let quantity = parseInt(this.quantityDisplay.textContent);
-    const button = event.target;
+  observeQuantityAttribute() {
+    const observer = new MutationObserver(mutations => {
+      mutations.forEach(mutation => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'disabled') {
+          this.handleQuantityAttributeChange();
+        }
+      });
+    });
 
-    if (button.classList.contains('increase')) {
-      quantity += 1;
+    observer.observe(this.quantity, { attributes: true });
+  }
+
+  handleQuantityAttributeChange() {
+    if (this.quantity.hasAttribute('disabled')) {
+      this.quantityNumber = 0;
+      this.quantityDisplay.textContent = Math.max(this.quantityNumber, 0);
     } else {
-      quantity -= 1;
+      this.quantityNumber = 1;
+      this.quantityDisplay.textContent = Math.max(this.quantityNumber, 1);
     }
+  }
 
-    this.quantityDisplay.textContent = Math.max(quantity, 1);
+  handleAddToCartClick(event) {
+
+    if (!this.quantity.hasAttribute('disabled')) {
+      console.log(1)
+      const button = event.target;
+      if (button.classList.contains('increase')) {
+        this.quantityNumber += 1;
+      } else {
+        this.quantityNumber -= 1;
+      }
+      this.quantityDisplay.textContent = Math.max(this.quantityNumber, 1);
+    }
   }
 }
 

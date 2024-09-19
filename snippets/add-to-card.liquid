@@ -1,12 +1,6 @@
 {{ 'add-to-card.css' | asset_url | stylesheet_tag }}
 
-
-<div class="add-to-card">
-  <button onclick="myFunction()">Add to cart</button>
-</div>
-
-<script>
-  function myFunction() {
-  alert("Hello! I am an alert box!");
-}
-</script>
+<button id="custom-add-to-cart" class="add-to-card custom-add-to-cart-btn js-add-to-cart">
+  <span></span>
+  {%- render 'loading-spinner' -%}
+</button>

@@ -39,6 +39,11 @@ body {
   }
 }
 
+.sold-out {
+  border-color: rgba(var(--color-foreground), 0.1);
+  color: rgba(var(--color-foreground), 0.6);
+  text-decoration: line-through;
+}
 
 .container {
   max-width: 1200px;

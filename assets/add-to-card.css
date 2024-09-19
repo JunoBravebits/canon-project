@@ -1,27 +1,31 @@
 .add-to-card {
   width: 100%;
   max-width: 370px;
-
-  > button {
-    line-height: 1;
-    text-decoration: none;
-    width: 100%;
-    max-width: 370px;
-    display: block;
-    border-radius: 5px;
-    background: #2D3339;
-    padding: 20px 0;
-    text-align: center;
-    font-size: 20px;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    border: none;
-    letter-spacing: 1px;
-  }
+  line-height: 1;
+  text-decoration: none;
+  width: 100%;
+  max-width: 370px;
+  display: block;
+  border-radius: 5px;
+  background: #2D3339;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  border: none;
+  letter-spacing: 1px;
 }
 
 .add-to-card:hover {
-  > button {
-    background: #43484D;
-  }
+  background: #43484D;
+}
+
+.add-to-card[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.add-to-card[disabled]:hover {
+  background: #2D3339;
 }

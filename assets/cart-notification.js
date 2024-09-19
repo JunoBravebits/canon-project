@@ -44,7 +44,7 @@ class CartNotification extends HTMLElement {
     });
 
     if (this.header) this.header.reveal();
-    this.open();
+    !parsedState.closeModal ? this.open() : null;
   }
 
   getSectionsToRender() {

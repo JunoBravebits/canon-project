@@ -24,43 +24,71 @@
       </div>
 
       <div class="product__content">
-        <div class="product__title title">{{ selected_product.title }}</div>
-        <div class="product__wrap">
-          <div class="product__price">{{ selected_product.price | money }}</div>
-          <div class="product__vote">
-            <div class="product__starts">
-              {{- 'icon-star-2.svg' | inline_asset_content -}}
-              {{- 'icon-star-2.svg' | inline_asset_content -}}
-              {{- 'icon-star-2.svg' | inline_asset_content -}}
-              {{- 'icon-star-2.svg' | inline_asset_content -}}
-              {{- 'icon-star-2-half.svg' | inline_asset_content -}}
+        <div class="cart-message js-cart-message"></div>
+        <product-cart>
+          <div class="product__title title">{{ selected_product.title }}</div>
+          <div class="product__wrap">
+
+            <div class="product__price js-price-display">{{ selected_product.price | money }}</div>
+            <div class="product__vote">
+              <div class="product__starts">
+                {{- 'icon-star-2.svg' | inline_asset_content -}}
+                {{- 'icon-star-2.svg' | inline_asset_content -}}
+                {{- 'icon-star-2.svg' | inline_asset_content -}}
+                {{- 'icon-star-2.svg' | inline_asset_content -}}
+                {{- 'icon-star-2-half.svg' | inline_asset_content -}}
+              </div>
+              <div class="product__review">( 231 review )</div>
             </div>
-            <div class="product__review">( 231 review )</div>
           </div>
-        </div>
-        <div class="product__cart">
-          <product-quantity>
-            <div class="product__quantity">
-              <span class="product__add-to-cart decrease js-btn-quantity">-</span>
-              <span class="product__quantity-number js-quantity">1</span>
-              <span class="product__add-to-cart increase js-btn-quantity">+</span>
+          <div class="product-variants">
+            {% for option in selected_product.options %}
+              <div class="variant-group">
+                <p class="product-variants__group">{{ option }}</p>
+                <div class="variant-options">
+                  {% assign option_index = forloop.index0 %}
+                  {% for variant in selected_product.variants %}
+                    {% if variant.options[option_index] %}
+                      <label class="product-variants__label"  for="{{ variant.id }}">
+                        <input class="product-variants__radio" type="radio" name="variant-{{ option.name }}" id="{{ variant.id }}" value="{{ variant.id }}" data-variant-id="{{ variant.id }}" data-variant-price="{{ variant.price | money }}">
+                        {{ variant.options[option_index] }}
+                      </label>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="product__cart">
+            <product-quantity>
+              <div class="product__quantity js-quantity">
+                <span class="product__add-to-cart decrease js-btn-quantity">-</span>
+                <span class="product__quantity-number js-quantity-display">1</span>
+                <span class="product__add-to-cart increase js-btn-quantity">+</span>
+              </div>
+            </product-quantity>
+            {% render 'add-to-card' %}
+          </div>
+          <div class="product__desc">{{ selected_product.description }}</div>
+          {%- if section.settings.video != blank -%}
+            <div class="product__video">
+              {% comment %}<iframe width="496" height="292"{% endcomment %}
+              <iframe
+                src="https://www.youtube.com/embed/{{ section.settings.video }}?controls=0">
+              </iframe>
             </div>
-          </product-quantity>
-          {% render 'add-to-card' %}
-        </div>
-        <div class="product__desc">{{ selected_product.description }}</div>
-        {%- if section.settings.video != blank -%}
-        <div class="product__video">
-          {% comment %}<iframe width="496" height="292"{% endcomment %}
-          <iframe
-            src="https://www.youtube.com/embed/{{ section.settings.video }}?controls=0"> 
-          </iframe>
-        </div>
-        {%- endif -%}
+          {%- endif -%}
+        </product-cart>
       </div>
     </div>
   </div>
 {%- endif -%}
+
+<script>
+  const productVariants = {{ selected_product.variants | json }};
+</script>
+
+<script src="{{ 'product-cart.js' | asset_url }}"></script>
 
 {% schema %}
 {
