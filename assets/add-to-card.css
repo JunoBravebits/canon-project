@@ -3,9 +3,6 @@
   max-width: 370px;
   line-height: 1;
   text-decoration: none;
-  width: 100%;
-  max-width: 370px;
-  display: block;
   border-radius: 5px;
   background: #2D3339;
   padding: 20px 0;
@@ -15,6 +12,10 @@
   cursor: pointer;
   border: none;
   letter-spacing: 1px;
+  min-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .add-to-card:hover {
@@ -28,4 +29,8 @@
 
 .add-to-card[disabled]:hover {
   background: #2D3339;
+}
+
+.add-to-card[disabled] .loading__spinner .path {
+  stroke: #fff;
 }
