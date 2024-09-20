@@ -4,7 +4,16 @@
 
 {%- endstyle -%}
 
-{% assign selected_product = all_products[section.settings.product] %}
+{%- liquid
+  assign product = section.settings.product
+
+-%}
+{% comment %}
+http://127.0.0.1:9292/undefined&option_values=44204722258085
+
+http://127.0.0.1:9292/products/canon-eos-m6-mark-ii?section_id=template--17757970071717__featured_product_HX7GpE&option_values=3890333515941
+{% endcomment %}
+{% assign selected_product = section.settings.product %}
 {%- if selected_product != blank -%}
   <div class="product p-component">
     <div class="container product__container">
@@ -25,7 +34,12 @@
 
       <div class="product__content">
         <div class="cart-message js-cart-message"></div>
-        <product-cart>
+        <product-cart 
+          data-section="{{ section.id }}"
+          data-product-id="{{ product.id }}"
+          data-update-url="false"
+          data-url="{{ product.url }}"
+        >
           <div class="product__title title">{{ selected_product.title }}</div>
           <div class="product__wrap">
 
@@ -41,6 +55,25 @@
               <div class="product__review">( 231 review )</div>
             </div>
           </div>
+
+          {% comment %}<variant-picker>{% endcomment %}
+            {% comment %}<div class="product-variants">{% endcomment %}
+              {% comment %}{% for option in selected_product.options %}{% endcomment %}
+                {% comment %}<div class="variant-group">{% endcomment %}
+                  {% comment %}<p class="product-variants__group">{{ option }}</p>{% endcomment %}
+                  {% comment %}<div class="variant-options">{% endcomment %}
+                    {% comment %}{% assign option_index = forloop.index0 %}{% endcomment %}
+                    {% comment %}{% for variant in selected_product.variants %}{% endcomment %}
+                      {% comment %}<label class="product-variants__label" for="{{ variant.id }}">{% endcomment %}
+                        {% comment %}<input class="product-variants__radio" type="radio" name="variant-{{ option.name }}" id="{{ variant.id }}" value="{{ variant.id }}">{% endcomment %}
+                        {% comment %}{{ variant.options[option_index] }}{% endcomment %}
+                      {% comment %}</label>{% endcomment %}
+                    {% comment %}{% endfor %}{% endcomment %}
+                  {% comment %}</div>{% endcomment %}
+                {% comment %}</div>{% endcomment %}
+              {% comment %}{% endfor %}{% endcomment %}
+            {% comment %}</div>{% endcomment %}
+          {% comment %}</variant-picker>{% endcomment %}
           <div class="product-variants">
             {% for option in selected_product.options %}
               <div class="variant-group">
@@ -50,7 +83,7 @@
                   {% for variant in selected_product.variants %}
                     {% if variant.options[option_index] %}
                       <label class="product-variants__label"  for="{{ variant.id }}">
-                        <input class="product-variants__radio" type="radio" name="variant-{{ option.name }}" id="{{ variant.id }}" value="{{ variant.id }}" data-variant-id="{{ variant.id }}" data-variant-price="{{ variant.price | money }}">
+                        <input class="product-variants__radio" data-product-url="{{ variant.product_url }}" type="radio" name="variant-{{ option.name }}" id="{{ variant.id }}" value="{{ variant.id }}" data-variant-id="{{ variant.id }}" data-variant-price="{{ variant.price | money }}">
                         {{ variant.options[option_index] }}
                       </label>
                     {% endif %}
@@ -86,6 +119,7 @@
 
 <script>
   const productVariants = {{ selected_product.variants | json }};
+  console.log(6666, productVariants)
 </script>
 
 <script src="{{ 'product-cart.js' | asset_url }}"></script>
@@ -111,7 +145,7 @@
       "type": "text",
       "id": "video",
       "label": "Video ID",
-      "info": "Nhập ID video từ YouTube",
+      "info": "Nhập ID video từ YouTube"
     }
   ],
   "presets": [

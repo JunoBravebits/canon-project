@@ -8,15 +8,18 @@ class ProductCart extends HTMLElement {
     this.spinner = document.querySelector('.js-loading-spinner');
     this.cart = document.querySelector('cart-notification');
     this.quantity = this.querySelector('.js-quantity');
+    this.price = this.querySelector('.js-price-display')
 
     this.initAddToCart();
   }
 
   initAddToCart() {
+
     this.variantSelectors.forEach(selector => {
       selector.addEventListener('change', this.updateSelectedVariant.bind(this));
     });
-    this.selectFirstAvailableVariant();
+
+    // this.selectFirstAvailableVariant();
     this.button.addEventListener('click', this.addToCart.bind(this));
     this.updateSelectedVariant();
     this.updateSoldOutVariants();
@@ -52,8 +55,8 @@ class ProductCart extends HTMLElement {
 
   updateSelectedVariant() {
     const selectedRadio = [...this.variantSelectors].find(selector => selector.checked);
+    console.log(111, selectedRadio.dataset.variantPrice)
     this.variantId = selectedRadio ? selectedRadio.value : null;
-
     const variantData = productVariants.find(variant => variant.id == this.variantId );
 
     if (variantData && !variantData.available) {
@@ -64,10 +67,9 @@ class ProductCart extends HTMLElement {
       this.button.disabled = false;
       this.button.querySelector('span').textContent = 'Add to Cart';
       this.quantity.removeAttribute('disabled')
+      this.price.textContent = selectedRadio.dataset.variantPrice
     }
   }
-
-
 
   getProductData() {
     const variantId = this.selectedVariant;
