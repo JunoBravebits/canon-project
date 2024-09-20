@@ -14,12 +14,10 @@ class ProductCart extends HTMLElement {
   }
 
   initAddToCart() {
-
     this.variantSelectors.forEach(selector => {
       selector.addEventListener('change', this.updateSelectedVariant.bind(this));
     });
-
-    // this.selectFirstAvailableVariant();
+    this.selectFirstAvailableVariant();
     this.button.addEventListener('click', this.addToCart.bind(this));
     this.updateSelectedVariant();
     this.updateSoldOutVariants();
@@ -55,7 +53,6 @@ class ProductCart extends HTMLElement {
 
   updateSelectedVariant() {
     const selectedRadio = [...this.variantSelectors].find(selector => selector.checked);
-    console.log(111, selectedRadio.dataset.variantPrice)
     this.variantId = selectedRadio ? selectedRadio.value : null;
     const variantData = productVariants.find(variant => variant.id == this.variantId );
 
@@ -68,6 +65,7 @@ class ProductCart extends HTMLElement {
       this.button.querySelector('span').textContent = 'Add to Cart';
       this.quantity.removeAttribute('disabled')
       this.price.textContent = selectedRadio.dataset.variantPrice
+      this.selectedVariant = variantData.id;
     }
   }
 
