@@ -1,24 +1,11 @@
 {{ 'awards.css' | asset_url | stylesheet_tag }}
 
 <div class="awards" style="--background: {{section.settings.backgroundColor}}">
-  <div class="container awards__container">
+  <div class="container awards__container" style="--justify-content: {{section.settings.justifyContent}}">
     {%- for block in section.blocks -%}
       <div class="awards__image">
         {%- if block.settings.image != blank -%}
-          {%- if section.settings.image_behavior == 'ambient' or section.settings.image_behavior == 'zoom-in' -%}
-            {%- assign widths = '198, 432, 642, 900, 1284, 1800' -%}
-            {%- capture sizes -%}
-              (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1.6667 }}px,
-              (min-width: 750px) calc((100vw - 130px) / 1.667), calc((100vw - 50px) / 1.667)
-            {%- endcapture -%}
-          {%- else -%}
-            {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
-            {%- capture sizes -%}
-              (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
-              (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
-            {%- endcapture -%}
-          {%- endif -%}
-          {{ block.settings.image | image_url: width: 400 | image_tag: widths: '200, 300, 400', sizes: '(min-width: 768px) 270px, 100vw' }}
+          {{ block.settings.image | image_url: width: 270 | image_tag: widths: '200, 300, 400', sizes: '(min-width: 768px) 270px, 100vw' }}
         {%- else -%}
           {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
         {%- endif -%}
@@ -47,23 +34,35 @@
     },
     {
       "type": "select",
-      "id": "image_behavior",
+      "id": "justifyContent",
       "options": [
         {
-          "value": "none",
-          "label": "t:sections.all.animation.image_behavior.options__1.label"
+          "value": "start",
+          "label": "Start"
         },
         {
-          "value": "ambient",
-          "label": "t:sections.all.animation.image_behavior.options__2.label"
+          "value": "center",
+          "label": "Center"
         },
         {
-          "value": "zoom-in",
-          "label": "t:sections.all.animation.image_behavior.options__4.label"
+          "value": "space-between",
+          "label": "Space-between"
+        },
+        {
+          "value": "space-around",
+          "label": "Space-around"
+        },
+        {
+          "value": "space-evenly",
+          "label": "space-evenly"
+        },
+        {
+          "value": "end",
+          "label": "End"
         }
       ],
-      "default": "none",
-      "label": "t:sections.all.animation.image_behavior.label"
+      "default": "center",
+      "label": "Align Content"
     }
   ],
   "blocks": [

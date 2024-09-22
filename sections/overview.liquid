@@ -23,7 +23,11 @@
       </div>
     </div>
     <div class="overview__image">
-      <img src="{{ section.settings.image | image_url }}" alt=""/>
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 370 | image_tag: widths: '200, 300, 400', sizes: '(min-width: 768px) 370px, 100vw' }}
+      {%- else -%}
+        {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
     </div>
   </div>
 </div>
@@ -43,19 +47,19 @@
     {
       "type": "text",
       "id": "label",
-      "default": "Label",
+      "default": "Lorem ipsum dolor sit",
       "label": "Label"
     },
     {
       "type": "text",
       "id": "title",
-      "default": "Title",
+      "default": "Overview",
       "label": "Title"
     },
     {
       "type": "text",
       "id": "desc",
-      "default": "Description",
+      "default": "For anyone who enjoys documenting their life with spontaneous, creative photography and filmmaking, the EOS M6 Mark II provides speed, power and versatility in a highly portable design.",
       "label": "Description"
     },
     {
@@ -72,14 +76,35 @@
         {
           "type": "text",
           "id": "info",
-          "label": "Info"
+          "label": "Info",
+          "default": "32.5MP APS-C CMOS Sensor + DIGIC 8"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Overview"
+      "name": "Overview",
+      "blocks": [
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        }
+      ]
     }
   ]
 }

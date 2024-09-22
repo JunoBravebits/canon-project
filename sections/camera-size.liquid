@@ -9,7 +9,12 @@
     <div class="camera-size__label label">{{ section.settings.label }}</div>
     <div class="camera-size__title title">{{ section.settings.title }}</div>
     <div class="camera-size__image">
-      <img src="{{ section.settings.image | image_url }}" alt=""/>
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1030 | image_tag: widths: '375, 550, 750, 1100, 1440, 1780, 2000, 3000, 3840', sizes: '100%' }}
+      {%- else -%}
+        {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+      {% comment %}<img src="{{ section.settings.image | image_url }}" alt=""/>{% endcomment %}
     </div>
 
   </div>
@@ -35,13 +40,13 @@
     {
       "type": "text",
       "id": "title",
-      "default": "Title",
+      "default": "Lorem ipsum",
       "label": "Title"
     },
     {
       "type": "text",
       "id": "label",
-      "default": "Label",
+      "default": "SMALL, LIGHT AND CONVENEINT",
       "label": "Label"
     }
   ],

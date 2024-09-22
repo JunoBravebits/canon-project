@@ -80,9 +80,8 @@
           <div class="product__desc">{{ selected_product.description }}</div>
           {%- if section.settings.video != blank -%}
             <div class="product__video">
-              {% comment %}<iframe width="496" height="292"{% endcomment %}
               <iframe
-                src="https://www.youtube.com/embed/{{ section.settings.video }}?controls=0">
+                src="{{ section.settings.video | replace: 'watch?v=', 'embed/' }}?controls=0">
               </iframe>
             </div>
           {%- endif -%}
@@ -118,8 +117,7 @@
     {
       "type": "text",
       "id": "video",
-      "label": "Video ID",
-      "info": "Nhập ID video từ YouTube"
+      "label": "Video URL"
     }
   ],
   "presets": [

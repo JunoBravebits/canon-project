@@ -7,6 +7,8 @@
 
   .camera-size__title {
     margin-bottom: 59px;
+    line-height: 41px;
+    margin-top: 0;
   }
 
   .camera-size__image {
