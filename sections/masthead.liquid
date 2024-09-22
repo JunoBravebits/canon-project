@@ -7,7 +7,16 @@
 
 {%- endstyle -%}
 
-<div class="masthead" style="background-image: url({{ section.settings.image | image_url }});">
+{% comment %}<div class="masthead" style="background-image: url({% endcomment %}
+
+<div class="masthead">
+  <div class="masthead__background">
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 1780 | image_tag: widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840', sizes: '100vw' }}
+    {%- else -%}
+      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
+  </div>
   <div class="masthead__container">
     <div class="masthead__title">{{ section.settings.title }}</div>
     <div class="arrows">

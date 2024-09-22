@@ -1,9 +1,17 @@
 .masthead {
   position: relative;
-  /* background-position: center; */
-  background-repeat: no-repeat;
-  background-size: cover;
+  /*!* background-position: center; *!*/
+  /*background-repeat: no-repeat;*/
+  /*background-size: cover;*/
   height: 680px;
+
+  .masthead__background {
+    position: absolute;
+
+    img {
+      height: 100%;
+    }
+  }
 
   .masthead__container {
     position: absolute;
