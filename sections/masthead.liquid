@@ -7,30 +7,29 @@
 
 {%- endstyle -%}
 
-{% comment %}<div class="masthead" style="background-image: url({% endcomment %}
-
 <div class="masthead">
   <div class="masthead__background">
     {%- if section.settings.image != blank -%}
-      {{ section.settings.image | image_url: width: 1780 | image_tag: widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840', sizes: '100vw' }}
+      {{ section.settings.image | image_url: width: 1440 | image_tag: widths: '375, 550, 750, 1100, 1440, 1780, 2000, 3000, 3840', sizes: '100vw' }}
     {%- else -%}
-      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
     {%- endif -%}
-  </div>
-  <div class="masthead__container">
-    <div class="masthead__title">{{ section.settings.title }}</div>
-    <div class="arrows">
-      <svg class="a1" xmlns="http://www.w3.org/2000/svg" width="45" height="24" viewBox="0 0 45 24" fill="none">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.92363 0.455288C1.50061 -0.139175 2.45025 -0.153349 3.04471 0.42363L23.6042 20.3784L42.9231 0.455782C43.4999 -0.138946 44.4495 -0.153556 45.0442 0.423151C45.6389 0.999857 45.6536 1.94949 45.0769 2.54422L24.7132 23.5442C24.4362 23.8299 24.057 23.9938 23.6591 23.9998C23.2612 24.0059 22.8772 23.8535 22.5917 23.5764L0.955288 2.57637C0.360825 1.99939 0.346651 1.04975 0.92363 0.455288Z" fill="white"/>
-      </svg>
-      <svg class="a2" xmlns="http://www.w3.org/2000/svg" width="45" height="24" viewBox="0 0 45 24" fill="none">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.92363 0.455288C1.50061 -0.139175 2.45025 -0.153349 3.04471 0.42363L23.6042 20.3784L42.9231 0.455782C43.4999 -0.138946 44.4495 -0.153556 45.0442 0.423151C45.6389 0.999857 45.6536 1.94949 45.0769 2.54422L24.7132 23.5442C24.4362 23.8299 24.057 23.9938 23.6591 23.9998C23.2612 24.0059 22.8772 23.8535 22.5917 23.5764L0.955288 2.57637C0.360825 1.99939 0.346651 1.04975 0.92363 0.455288Z" fill="white"/>
-      </svg>
-      <svg class="a3" xmlns="http://www.w3.org/2000/svg" width="45" height="24" viewBox="0 0 45 24" fill="none">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.92363 0.455288C1.50061 -0.139175 2.45025 -0.153349 3.04471 0.42363L23.6042 20.3784L42.9231 0.455782C43.4999 -0.138946 44.4495 -0.153556 45.0442 0.423151C45.6389 0.999857 45.6536 1.94949 45.0769 2.54422L24.7132 23.5442C24.4362 23.8299 24.057 23.9938 23.6591 23.9998C23.2612 24.0059 22.8772 23.8535 22.5917 23.5764L0.955288 2.57637C0.360825 1.99939 0.346651 1.04975 0.92363 0.455288Z" fill="white"/>
-      </svg>
+    <div class="masthead__container">
+      <div class="masthead__title">{{ section.settings.title }}</div>
+      <div class="arrows">
+        <svg class="a1" xmlns="http://www.w3.org/2000/svg" width="45" height="24" viewBox="0 0 45 24" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0.92363 0.455288C1.50061 -0.139175 2.45025 -0.153349 3.04471 0.42363L23.6042 20.3784L42.9231 0.455782C43.4999 -0.138946 44.4495 -0.153556 45.0442 0.423151C45.6389 0.999857 45.6536 1.94949 45.0769 2.54422L24.7132 23.5442C24.4362 23.8299 24.057 23.9938 23.6591 23.9998C23.2612 24.0059 22.8772 23.8535 22.5917 23.5764L0.955288 2.57637C0.360825 1.99939 0.346651 1.04975 0.92363 0.455288Z" fill="white"/>
+        </svg>
+        <svg class="a2" xmlns="http://www.w3.org/2000/svg" width="45" height="24" viewBox="0 0 45 24" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0.92363 0.455288C1.50061 -0.139175 2.45025 -0.153349 3.04471 0.42363L23.6042 20.3784L42.9231 0.455782C43.4999 -0.138946 44.4495 -0.153556 45.0442 0.423151C45.6389 0.999857 45.6536 1.94949 45.0769 2.54422L24.7132 23.5442C24.4362 23.8299 24.057 23.9938 23.6591 23.9998C23.2612 24.0059 22.8772 23.8535 22.5917 23.5764L0.955288 2.57637C0.360825 1.99939 0.346651 1.04975 0.92363 0.455288Z" fill="white"/>
+        </svg>
+        <svg class="a3" xmlns="http://www.w3.org/2000/svg" width="45" height="24" viewBox="0 0 45 24" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0.92363 0.455288C1.50061 -0.139175 2.45025 -0.153349 3.04471 0.42363L23.6042 20.3784L42.9231 0.455782C43.4999 -0.138946 44.4495 -0.153556 45.0442 0.423151C45.6389 0.999857 45.6536 1.94949 45.0769 2.54422L24.7132 23.5442C24.4362 23.8299 24.057 23.9938 23.6591 23.9998C23.2612 24.0059 22.8772 23.8535 22.5917 23.5764L0.955288 2.57637C0.360825 1.99939 0.346651 1.04975 0.92363 0.455288Z" fill="white"/>
+        </svg>
+      </div>
     </div>
   </div>
+
 </div>
 
 {% schema %}
@@ -53,14 +52,14 @@
     {
       "type": "text",
       "id": "title",
-      "default": "Title",
+      "default": "Lorem ipsum dolor sit amet",
       "label": "Title"
     },
     {
       "type": "color",
       "id": "colorHeading",
       "label": "Color heading",
-      "default": "#000000"
+      "default": "#ffffff"
     }
   ],
   "presets": [

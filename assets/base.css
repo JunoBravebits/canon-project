@@ -1,7 +1,7 @@
-@font-face {
-  font-family: "Epilogue";
-  src: url({{ "Epilogue" | asset_url }} format("woff2"));
-}
+/*@font-face {*/
+/*  font-family: "Epilogue";*/
+/*  src: url({{ "Epilogue" | asset_url }} format("woff2"));*/
+/*}*/
 
 body {
   font-family: "Epilogue", sans-serif;
