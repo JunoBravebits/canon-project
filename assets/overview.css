@@ -69,8 +69,6 @@
 
   @media screen and (max-width: 576px) {
     .overview__image {
-      max-width: 100%;
-      
       img {
         padding: 30px;
       }

@@ -8,7 +8,11 @@
   <div class="container">
     <div class="our-features__container">
       <div class="our-features__image">
-        <img src="{{ section.settings.image | image_url }}" alt=""/>
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: 470 | image_tag: widths: '375, 470, 750, 1100, 1440', sizes: '(min-width: 768px) 470px, 375px' }}
+        {%- else -%}
+          {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
       </div>
       <div class="our-features__content">
         <div class="our-features__label label">{{ section.settings.label }}</div>
@@ -17,7 +21,11 @@
         {%- for block in section.blocks -%}
             <div class="our-features__technology-wrap" >
               <div class="our-features__technology-image">
-                <img src="{{ block.settings.image | image_url }}" alt=""/>
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 70 | image_tag: widths: '200, 300, 400', sizes: '(min-width: 768px) 70px, 100vw' }}
+                {%- else -%}
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
               </div>
               <div class="our-features__technology-title">{{ block.settings.title }}</div>
               <div class="our-features__technology-desc">{{ block.settings.desc }}</div>
@@ -86,7 +94,27 @@
   ],
   "presets": [
     {
-      "name": "Our Features"
+      "name": "Our Features",
+      "blocks": [
+        {
+          "type": "technology"
+        },
+        {
+          "type": "technology"
+        },
+        {
+          "type": "technology"
+        },
+        {
+          "type": "technology"
+        },
+        {
+          "type": "technology"
+        },
+        {
+          "type": "technology"
+        }
+      ]
     }
   ]
 }

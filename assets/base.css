@@ -64,6 +64,7 @@ body {
 }
 
 img {
+  height: auto;
   width: 100%;
   display: block;
 }
@@ -1037,7 +1038,7 @@ summary::-webkit-details-marker {
 }
 
 /* component-title */
-.title,
+/* .title, */
 .title-wrapper-with-link {
   margin: 3rem 0 2rem;
 }
@@ -1081,7 +1082,7 @@ summary::-webkit-details-marker {
 }
 
 @media screen and (min-width: 990px) {
-  .title,
+  /* .title, */
   .title-wrapper-with-link {
     margin: 5rem 0 3rem;
   }

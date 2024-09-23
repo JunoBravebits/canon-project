@@ -7,6 +7,7 @@
 
     img {
       object-fit: cover;
+      height: 680px;
     }
   }
 
@@ -64,6 +65,13 @@
     aspect-ratio: 375 / 350;
     height: unset;
     background-position: center;
+
+    .masthead__background {
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
 
     .masthead__title {
       font-size: 40px;

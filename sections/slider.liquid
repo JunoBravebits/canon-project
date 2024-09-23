@@ -1,0 +1,78 @@
+{{ 'slider.css' | asset_url | stylesheet_tag }}
+
+<div class="slider">
+  <custom-slider>
+    <div class="slider__container">
+      <div class="slider__content js-slider-content">
+        {%- for block in section.blocks -%}
+          <div class="slider__image js-slider-item">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 1440 | image_tag: widths: '375, 550, 750, 1100, 1440, 1780, 2000, 3000, 3840', sizes: '100vw' }}
+            {%- else -%}
+              {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </div>
+  
+        {%- endfor -%}
+      </div>
+  
+      <button class="prev js-btn-prev">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
+          <rect width="60" height="60" rx="5" transform="matrix(-1 0 0 1 60 0)" fill="black" fill-opacity="0.5"/>
+          <path d="M34 22L25 30L34 38" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="next js-btn-next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
+          <rect width="60" height="60" rx="5" fill="black" fill-opacity="0.5"/>
+          <path d="M26 22L35 30L26 38" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+  
+      <div class="slider__pagination js-pagination"></div>
+    </div>
+  </custom-slider>
+</div>
+
+{% schema %}
+{
+  "name": "Slider",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "blocks": [
+    {
+      "type": "slider",
+      "name": "Slider",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slider",
+      "blocks": [
+        {
+          "type": "slider"
+        },
+        {
+          "type": "slider"
+        },
+        {
+          "type": "slider"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

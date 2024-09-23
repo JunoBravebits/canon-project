@@ -16,30 +16,29 @@
     margin-bottom: 40px;
   }
 
-  .our-features__image {
-    width: 50%;
-  }
-
   .our-features__content {
-    width: 50%;
-    padding-left: 15px;
+    max-width: 570px;
   }
 
   .our-features__image {
-    max-width: 470px;
+    max-width: 510px;
     padding: 20px;
     margin-right: auto;
+    
+    img {
+      height: auto;
+    }
   }
 
   .our-features__technology {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
+    justify-content: center;
   }
 
   .our-features__technology-wrap {
-    max-width: 180px;
-    width: 100%;
+    min-width: 180px;
     text-align: center;
     padding: 19px 5px 29px;
     border: 1px solid #ECECEC;
@@ -68,15 +67,16 @@
 
   @media screen and (max-width: 1199px) {
     .our-features__image {
-      width: 40%;
+      width: 50%;
     }
 
     .our-features__content {
-      width: 60%;
+      width: 50%;
     }
 
     .our-features__technology-wrap {
-      max-width: calc((100% - 30px) / 3);
+      /* max-width: calc((100% - 30px) / 3); */
+      min-width: 160px;
     }
   }
 
