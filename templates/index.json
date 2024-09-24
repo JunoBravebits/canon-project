@@ -183,6 +183,14 @@
         "title": "Our Features",
         "label": "NEW TECHNOLOGY BEHIND"
       }
+    },
+    "camera_size_f3UK3C": {
+      "type": "camera-size",
+      "settings": {
+        "image": "shopify://shop_images/camera.png",
+        "title": "Camera Size",
+        "label": "SMALL, LIGHT AND CONVENEINT"
+      }
     }
   },
   "order": [
@@ -190,6 +198,7 @@
     "product_8kPmgk",
     "awards_39jtxJ",
     "overview_bqRTp7",
-    "our_features_XQ6Bxx"
+    "our_features_XQ6Bxx",
+    "camera_size_f3UK3C"
   ]
 }
