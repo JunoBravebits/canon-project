@@ -191,6 +191,36 @@
         "title": "Camera Size",
         "label": "SMALL, LIGHT AND CONVENEINT"
       }
+    },
+    "slider_XcrTC8": {
+      "type": "slider",
+      "blocks": {
+        "slider_nrk3Fq": {
+          "type": "slider",
+          "settings": {
+            "image": "shopify://shop_images/slide-1.png"
+          }
+        },
+        "slider_TmJJ3f": {
+          "type": "slider",
+          "settings": {
+            "image": "shopify://shop_images/slide-2.png"
+          }
+        },
+        "slider_cWhfbw": {
+          "type": "slider",
+          "settings": {
+            "image": "shopify://shop_images/slide-3.png"
+          }
+        }
+      },
+      "block_order": [
+        "slider_nrk3Fq",
+        "slider_TmJJ3f",
+        "slider_cWhfbw"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
@@ -199,6 +229,7 @@
     "awards_39jtxJ",
     "overview_bqRTp7",
     "our_features_XQ6Bxx",
-    "camera_size_f3UK3C"
+    "camera_size_f3UK3C",
+    "slider_XcrTC8"
   ]
 }
