@@ -310,6 +310,14 @@
         "image": "shopify://shop_images/image-1.png",
         "title": "Testimonial"
       }
+    },
+    "accessories_P89KfB": {
+      "type": "accessories",
+      "settings": {
+        "label": "RELATED PRODUCT",
+        "title": "Competiable Accessories",
+        "collection": "accessories"
+      }
     }
   },
   "order": [
@@ -321,6 +329,7 @@
     "camera_size_f3UK3C",
     "slider_XcrTC8",
     "accordion_image_DYetdm",
-    "image_carousel_qXYqnQ"
+    "image_carousel_qXYqnQ",
+    "accessories_P89KfB"
   ]
 }
