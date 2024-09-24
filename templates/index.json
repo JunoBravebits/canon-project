@@ -272,6 +272,44 @@
         "image": "shopify://shop_images/Rectangle_27.png",
         "title": "Product Spects"
       }
+    },
+    "image_carousel_qXYqnQ": {
+      "type": "image-carousel",
+      "blocks": {
+        "image_carousel_thpMz8": {
+          "type": "imageCarousel",
+          "settings": {
+            "avatar": "shopify://shop_images/Ellipse_2.png",
+            "label": "AMARI SALTER",
+            "desc": "I bought this last month and I literally did not know anything about photography. Lots of features and great photos, using it to practice an hour a day"
+          }
+        },
+        "image_carousel_TyiBDx": {
+          "type": "imageCarousel",
+          "settings": {
+            "avatar": "shopify://shop_images/Ellipse_4.png",
+            "label": "AMARI SALTER",
+            "desc": "I bought this last month and I literally did not know anything about photography. Lots of features and great photos, using it to practice an hour a day"
+          }
+        },
+        "image_carousel_QHbtc7": {
+          "type": "imageCarousel",
+          "settings": {
+            "avatar": "shopify://shop_images/Ellipse_3.png",
+            "label": "AMARI SALTER",
+            "desc": "I bought this last month and I literally did not know anything about photography. Lots of features and great photos, using it to practice an hour a day"
+          }
+        }
+      },
+      "block_order": [
+        "image_carousel_thpMz8",
+        "image_carousel_TyiBDx",
+        "image_carousel_QHbtc7"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/image-1.png",
+        "title": "Testimonial"
+      }
     }
   },
   "order": [
@@ -282,6 +320,7 @@
     "our_features_XQ6Bxx",
     "camera_size_f3UK3C",
     "slider_XcrTC8",
-    "accordion_image_DYetdm"
+    "accordion_image_DYetdm",
+    "image_carousel_qXYqnQ"
   ]
 }
