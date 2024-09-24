@@ -23,10 +23,106 @@
         "product": "canon-eos-m6-mark-ii",
         "video": "https://www.youtube.com/watch?v=xBVc-qGwev0"
       }
+    },
+    "awards_39jtxJ": {
+      "type": "awards",
+      "blocks": {
+        "image_diRQGT": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/award-1.png"
+          }
+        },
+        "image_nEJFQd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/award-2.png"
+          }
+        },
+        "image_j6tdF6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/award-3.png"
+          }
+        },
+        "image_VjNGHb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/award-4.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_diRQGT",
+        "image_nEJFQd",
+        "image_j6tdF6",
+        "image_VjNGHb"
+      ],
+      "settings": {
+        "backgroundColor": "#F7F7F7",
+        "justifyContent": "center"
+      }
+    },
+    "overview_bqRTp7": {
+      "type": "overview",
+      "blocks": {
+        "text_QxcgK7": {
+          "type": "text",
+          "settings": {
+            "info": "32.5MP APS-C CMOS Sensor + DIGIC 8"
+          }
+        },
+        "text_QAwmRg": {
+          "type": "text",
+          "settings": {
+            "info": "5,481 autofocus points"
+          }
+        },
+        "text_d7izjj": {
+          "type": "text",
+          "settings": {
+            "info": "Dual Pixel CMOS AF"
+          }
+        },
+        "text_VgnAgr": {
+          "type": "text",
+          "settings": {
+            "info": "Automatic Eye Focus"
+          }
+        },
+        "text_KMBitc": {
+          "type": "text",
+          "settings": {
+            "info": "30fps RAW burst mode"
+          }
+        },
+        "text_JN3Hfz": {
+          "type": "text",
+          "settings": {
+            "info": "4K Video (Uncropped / Cropped)"
+          }
+        }
+      },
+      "block_order": [
+        "text_QxcgK7",
+        "text_QAwmRg",
+        "text_d7izjj",
+        "text_VgnAgr",
+        "text_KMBitc",
+        "text_JN3Hfz"
+      ],
+      "settings": {
+        "label": "MORE THAN A CAMERA",
+        "title": "Overview",
+        "desc": "For anyone who enjoys documenting their life with spontaneous, creative photography and filmmaking, the EOS M6 Mark II provides speed, power and versatility in a highly portable design.",
+        "image": "shopify://shop_images/camera-2.png"
+      }
     }
   },
   "order": [
     "masthead_tAeLnN",
-    "product_8kPmgk"
+    "product_8kPmgk",
+    "awards_39jtxJ",
+    "overview_bqRTp7"
   ]
 }
