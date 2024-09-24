@@ -221,6 +221,57 @@
       ],
       "settings": {
       }
+    },
+    "accordion_image_DYetdm": {
+      "type": "accordion-image",
+      "blocks": {
+        "accordion_image_39weMt": {
+          "type": "accordionImage",
+          "settings": {
+            "label": "Imageing",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+          }
+        },
+        "accordion_image_4dxiUA": {
+          "type": "accordionImage",
+          "settings": {
+            "label": "Exposure Control",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+          }
+        },
+        "accordion_image_qMhTaG": {
+          "type": "accordionImage",
+          "settings": {
+            "label": "Video",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+          }
+        },
+        "accordion_image_dM7jMj": {
+          "type": "accordionImage",
+          "settings": {
+            "label": "Focus",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+          }
+        },
+        "accordion_image_R3jbCm": {
+          "type": "accordionImage",
+          "settings": {
+            "label": "Viewfinder and Monitor",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+          }
+        }
+      },
+      "block_order": [
+        "accordion_image_39weMt",
+        "accordion_image_4dxiUA",
+        "accordion_image_qMhTaG",
+        "accordion_image_dM7jMj",
+        "accordion_image_R3jbCm"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_27.png",
+        "title": "Product Spects"
+      }
     }
   },
   "order": [
@@ -230,6 +281,7 @@
     "overview_bqRTp7",
     "our_features_XQ6Bxx",
     "camera_size_f3UK3C",
-    "slider_XcrTC8"
+    "slider_XcrTC8",
+    "accordion_image_DYetdm"
   ]
 }
