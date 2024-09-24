@@ -117,12 +117,79 @@
         "desc": "For anyone who enjoys documenting their life with spontaneous, creative photography and filmmaking, the EOS M6 Mark II provides speed, power and versatility in a highly portable design.",
         "image": "shopify://shop_images/camera-2.png"
       }
+    },
+    "our_features_XQ6Bxx": {
+      "type": "our-features",
+      "blocks": {
+        "technology_nTGiB4": {
+          "type": "technology",
+          "settings": {
+            "image": "shopify://shop_images/technology-1.png",
+            "title": "Creative Filters",
+            "desc": "Unique effects"
+          }
+        },
+        "technology_9jTTyi": {
+          "type": "technology",
+          "settings": {
+            "image": "shopify://shop_images/technology-2.png",
+            "title": "3.0 (7.5 cm) type",
+            "desc": "LCD screen"
+          }
+        },
+        "technology_ENVmPK": {
+          "type": "technology",
+          "settings": {
+            "image": "shopify://shop_images/technology-3.png",
+            "title": "24.1 megapixel",
+            "desc": "APS-C sensor"
+          }
+        },
+        "technology_ijCjHz": {
+          "type": "technology",
+          "settings": {
+            "image": "shopify://shop_images/technology-4.png",
+            "title": "Connectivity",
+            "desc": "Simple shoot"
+          }
+        },
+        "technology_MdkBkE": {
+          "type": "technology",
+          "settings": {
+            "image": "shopify://shop_images/technology-5.png",
+            "title": "Intelligent Auto",
+            "desc": "Simple shoot"
+          }
+        },
+        "technology_RdTF9t": {
+          "type": "technology",
+          "settings": {
+            "image": "shopify://shop_images/technology-6.png",
+            "title": "Intelligent Auto",
+            "desc": "9 point autofocus"
+          }
+        }
+      },
+      "block_order": [
+        "technology_nTGiB4",
+        "technology_9jTTyi",
+        "technology_ENVmPK",
+        "technology_ijCjHz",
+        "technology_MdkBkE",
+        "technology_RdTF9t"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/camera-3.png",
+        "title": "Our Features",
+        "label": "NEW TECHNOLOGY BEHIND"
+      }
     }
   },
   "order": [
     "masthead_tAeLnN",
     "product_8kPmgk",
     "awards_39jtxJ",
-    "overview_bqRTp7"
+    "overview_bqRTp7",
+    "our_features_XQ6Bxx"
   ]
 }
